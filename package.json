@@ -4,9 +4,10 @@
   "description": "Usage Examples of Colyseus Game Server with Arena Hosting",
   "main": "lib/index.js",
   "scripts": {
-    "start": "ts-node-dev --respawn --transpile-only src/index.ts",
-    "build": "npm run clean && tsc && node node_modules/copyfiles/copyfiles package.json ./lib && node node_modules/copyfiles/copyfiles arena.env ./lib && node node_modules/copyfiles/copyfiles -u 1 src/static/* ./lib",
-    "clean": "node node_modules/rimraf/bin lib",
+    "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
+    "build": "npm run clean && tsc && node_modules/copyfiles/copyfiles --flat src/static/* ./dist/static/",
+    "start": "node dist/index.js",
+    "clean": "node node_modules/rimraf/bin dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "engines": {
